@@ -1,0 +1,41 @@
+Para aplicar un filtro de ruido a una imagen jpg en Python, podemos utilizar la librería OpenCV. En este ejemplo, utilizaremos el filtro de mediana para reducir el ruido impulsivo de una imagen.
+
+Primero, debemos asegurarnos de tener instaladas las librerías necesarias. En una consola de comandos, podemos ejecutar:
+
+pip install opencv-python
+pip install opencv-python-headless
+
+A continuación, podemos utilizar el siguiente código para cargar una imagen en formato jpg, aplicar el filtro de mediana y guardar la imagen resultante:
+
+import cv2
+
+# Cargar la imagen
+img = cv2.imread('imagen.jpg')
+
+# Aplicar el filtro de mediana
+img_filtrada = cv2.medianBlur(img, 5)
+
+# Guardar la imagen filtrada
+cv2.imwrite('imagen_filtrada.jpg', img_filtrada)
+
+En este código, la función cv2.imread se utiliza para cargar la imagen 'imagen.jpg' en un objeto de tipo numpy.ndarray. A continuación, la función cv2.medianBlur se utiliza para aplicar el filtro de mediana a la imagen con un tamaño de kernel de 5x5 píxeles. Finalmente, la función cv2.imwrite se utiliza para guardar la imagen filtrada en formato jpg con el nombre 'imagen_filtrada.jpg'.
+
+Es importante tener en cuenta que los parámetros del filtro de mediana pueden ser ajustados para obtener mejores resultados en diferentes situaciones. También existen otros algoritmos de filtrado de ruido que pueden ser utilizados para reducir diferentes tipos de ruido en una imagen.
+
+--
+
+
+Filtro de media (mean filter): Este filtro suaviza una imagen reduciendo el ruido de alta frecuencia. Se utiliza para eliminar el ruido de Gauss de una imagen. Se implementa en la biblioteca OpenCV y se utiliza la función cv2.blur().
+
+Filtro Gaussiano (Gaussian filter): Este filtro suaviza una imagen reduciendo el ruido de alta frecuencia. Se utiliza para eliminar el ruido de Gauss de una imagen. Se implementa en la biblioteca OpenCV y se utiliza la función cv2.GaussianBlur().
+
+Filtro bilateral (bilateral filter): Este filtro suaviza una imagen reduciendo el ruido de alta frecuencia. Es especialmente útil para preservar los bordes de una imagen, mientras se elimina el ruido. Se implementa en la biblioteca OpenCV y se utiliza la función cv2.bilateralFilter().
+
+Filtro de Wiener (Wiener filter): Este filtro es un método adaptativo para eliminar el ruido en una imagen. Se implementa en la biblioteca Scipy y se utiliza la función scipy.signal.wiener().
+
+Filtro de wavelet (wavelet filter): Este filtro es útil para eliminar el ruido de una imagen en diferentes escalas y orientaciones. Se implementa en la biblioteca PyWavelets y se utiliza la función pywt.dwt2().
+
+--
+
+
+
